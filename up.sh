@@ -1,8 +1,13 @@
 #!/bin/sh
-path=/home/rtt/chenl/
+WORK_PATH=/home/rtt/chenl/cpumem/
+TIME_DATE=`date '+%Y%m%d'`
+IP_AD=`ifconfig | sed -n '2p' | awk -F '[ :]+' '{print $4}'`
+FILE_NAME=${IP_AD}_${TIME_DATE}.tar.gz
+LOG_NAME=${IP_AD}_${TIME_DATE}.csv
 
-host_ip=`ifconfig | sed -n '20p' | awk -F '[ :]+' '{print $4}'`
-file_name=${host_ip}.tar.gz
-tar -czvf $file_name *
 
-cp $file_name 
+mv out.csv $LOG_NAME
+tar -czvf $FILE_NAME $LOG_NAME
+mv $FILE_NAME ${WORK_PATH}/bak
+
+rm $LOG_NAME
