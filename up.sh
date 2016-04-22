@@ -7,7 +7,8 @@ LOG_NAME=${IP_AD}_${TIME_DATE}.csv
 
 
 mv out.csv $LOG_NAME
-tar -czvf $FILE_NAME $LOG_NAME
+tar -czf $FILE_NAME $LOG_NAME
 mv $FILE_NAME ${WORK_PATH}/bak
 
 rm $LOG_NAME
+
