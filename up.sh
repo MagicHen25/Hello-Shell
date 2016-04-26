@@ -1,4 +1,5 @@
 #!/bin/sh
+source /etc/profile
 WORK_PATH=/home/rtt/chenl/cpumem/
 TIME_DATE=`date '+%Y%m%d'`
 IP_AD=`ifconfig | sed -n '2p' | awk -F '[ :]+' '{print $4}'`
